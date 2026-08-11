@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #003d2a;
+  --forest-deep: #002f22;
+  --paper: #f6e8c8;
+  --yellow: #ffd21a;
+  --sun: #f9b800;
+  --pink: #e91667;
+  --coral: #e6404f;
+  --ink: #10261d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--forest);
+  font-family: "Arial Narrow", "Avenir Next Condensed", Impact, sans-serif;
+}
+
+a { color: inherit; }
+
+.page-shell {
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  min-height: clamp(5.8rem, 11.7vw, 7.5rem);
+  padding: 1rem clamp(1.25rem, 3.1vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--forest-deep);
+  color: var(--paper);
+}
+
+.studio-mark {
+  width: max-content;
+  color: var(--yellow);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(-1.5deg);
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-weight: 1000;
+  letter-spacing: -.09em;
+  line-height: .72;
+  text-transform: uppercase;
+}
+
+.studio-time { font-size: clamp(1.95rem, 3.35vw, 3.15rem); }
+.studio-time small { margin-left: .08em; font-size: .45em; letter-spacing: -.06em; }
+.studio-name { padding-left: .45em; font-size: clamp(1rem, 1.8vw, 1.7rem); line-height: 1; }
+
+.primary-nav { display: flex; align-items: center; gap: clamp(1.4rem, 3vw, 3rem); }
+.hype-link {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: ui-monospace, "Courier New", monospace;
+  font-size: clamp(.95rem, 1.7vw, 1.55rem);
+  letter-spacing: -.05em;
+}
+.hype-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%; bottom: -.35rem;
+  height: 2px;
+  background: var(--pink);
+  transition: right 180ms ease;
+}
+.hype-link:hover::after, .hype-link:focus-visible::after { right: 0; }
+
+.apply-button {
+  padding: 4px;
+  min-width: clamp(8.6rem, 14.5vw, 13.8rem);
+  color: var(--forest);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: repeating-linear-gradient(90deg, var(--pink) 0 5px, var(--yellow) 5px 9px, var(--forest) 9px 12px);
+  transition: transform 150ms ease;
+}
+.apply-button span {
+  display: block;
+  padding: .55rem 1.4rem .4rem;
+  border: 2px solid var(--forest);
+  background: var(--yellow);
+  font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.25vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1;
+}
+.apply-button:hover, .apply-button:focus-visible { transform: translate(-3px, -3px); }
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - clamp(5.8rem, 11.7vw, 7.5rem));
+  isolation: isolate;
+  background: var(--paper);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: .17;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+.hero-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: url("/artwork/goa-coast-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(55vw, 52rem);
+  padding: clamp(4.6rem, 9vh, 7rem) 0 2.5rem clamp(2rem, 8.8vw, 8.5rem);
+}
+
+.hero-title {
+  position: relative;
+  margin: 0;
+  width: max-content;
+  color: var(--forest);
+  font-family: "Bodoni 72", Didot, "Bodoni MT", Georgia, serif;
+  font-size: clamp(7rem, 13.4vw, 12.8rem);
+  font-weight: 900;
+  line-height: .68;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+.title-line { display: block; transform: scaleX(.8); transform-origin: left center; }
+.title-house { margin-top: .13em; padding-left: .08em; }
+
+.goa-word {
+  position: absolute;
+  z-index: 2;
+  top: 43%;
+  left: 47%;
+  padding: .02em .1em .08em;
+  color: var(--yellow);
+  font-family: "Noto Sans Devanagari", "Kohinoor Devanagari", Mangal, sans-serif;
+  font-size: .42em;
+  font-weight: 1000;
+  line-height: .9;
+  letter-spacing: -.08em;
+  -webkit-text-stroke: .035em var(--pink);
+  paint-order: stroke fill;
+  transform: rotate(-2deg);
+  filter: drop-shadow(.018em .025em 0 var(--forest));
+}
+
+.event-copy { margin: clamp(2.2rem, 4.5vh, 4rem) 0 0 clamp(.8rem, 3vw, 3.2rem); text-transform: uppercase; }
+.manifesto, .event-details {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(.65rem, 1.2vw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+.manifesto { font-size: clamp(1.1rem, 2.15vw, 2rem); }
+.event-details { margin-top: clamp(1rem, 2.2vh, 1.6rem); font-size: clamp(1.15rem, 2.25vw, 2.1rem); }
+.manifesto i, .event-details i { width: .3em; aspect-ratio: 1; flex: 0 0 auto; border-radius: 50%; background: var(--pink); }
+
+.sun-spark { position: absolute; z-index: 2; color: var(--pink); font-size: 2.5rem; }
+.spark-one { top: 8%; left: 5.5%; color: var(--sun); transform: rotate(12deg); }
+.spark-two { top: 12%; left: 12%; }
+
+@media (max-width: 1050px) {
+  .hero-content { width: 68vw; padding-left: 5vw; }
+  .hero-title { font-size: clamp(6rem, 14vw, 9.2rem); }
+  .hero-art { background-size: auto 100%; background-position: 58% bottom; }
+}
+
+@media (max-width: 760px) {
+  .site-header { min-height: 5.7rem; padding: .9rem 1rem; }
+  .primary-nav { gap: .85rem; }
+  .hype-link { font-size: .82rem; }
+  .apply-button { min-width: 6.9rem; padding: 3px; }
+  .apply-button span { padding: .48rem .75rem .36rem; font-size: 1.2rem; }
+  .hero { min-height: calc(100svh - 5.7rem); }
+  .hero-content { width: 100%; padding: 3.2rem 1rem 0; }
+  .hero-title { font-size: clamp(5.5rem, 25vw, 8.2rem); line-height: .7; }
+  .goa-word { top: 45%; left: 46%; }
+  .event-copy { margin: 2.2rem 0 0 .5rem; }
+  .manifesto { max-width: 25rem; flex-wrap: wrap; row-gap: .3rem; font-size: clamp(.98rem, 4.5vw, 1.25rem); }
+  .event-details { flex-direction: column; align-items: flex-start; gap: .25rem; font-size: 1.3rem; }
+  .event-details i { display: none; }
+  .hero-art { inset: 28% 0 0; background-size: auto 100%; background-position: 61% bottom; }
+  .spark-one { top: 2%; left: 4%; }
+  .spark-two { display: none; }
+}
+
+@media (max-width: 430px) {
+  .studio-time { font-size: 1.75rem; }
+  .studio-name { font-size: .92rem; }
+  .hype-link { position: absolute; right: 1rem; top: 5.95rem; z-index: 4; color: var(--forest); font-weight: 900; }
+  .hero-content { padding-top: 2.5rem; }
+  .hero-title { font-size: clamp(5rem, 24.6vw, 6.6rem); }
+  .event-copy { margin-top: 1.6rem; }
+  .manifesto { width: 13rem; }
+  .hero-art { inset: 37% 0 0; background-size: auto 100%; background-position: 62% bottom; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
+
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
