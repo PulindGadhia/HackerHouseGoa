@@ -24,7 +24,8 @@ test("server-renders the Hacker House Goa hero", async () => {
   assert.match(html, /<title>Hacker House Goa 2026<\/title>/i);
   assert.match(html, /Hacker/);
   assert.match(html, /House/);
-  assert.match(html, /गोवा/);
+  assert.match(html, /\/branding\/goa-hindi\.svg/);
+  assert.match(html, /\/videos\/hacker-house-goa\.mp4/);
   assert.match(html, /28–31 Oct 2026/);
   assert.match(html, /Goa, India/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);

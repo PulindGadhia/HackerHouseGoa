@@ -1,27 +1,16 @@
-function StudioMark() {
-  return (
-    <a className="studio-mark" href="#top" aria-label="2:47 PM Studio, home">
-      <span className="studio-time">2:47<small>PM</small></span>
-      <span className="studio-name">STUDIO</span>
-    </a>
-  );
-}
-
-function ApplyButton() {
-  return (
-    <a className="apply-button" href="#apply" aria-label="Apply to Hacker House Goa">
-      <span>Apply</span>
-    </a>
-  );
-}
+/* eslint-disable @next/next/no-img-element -- the supplied artwork is a direct decorative layer. */
+import { StudioMark } from "../components/branding/studio-mark";
+import { GoaEnvironment } from "../components/hero/goa-environment";
+import { CheckHypeModal } from "../components/interaction/check-hype-modal";
+import { CreateIdButton } from "../components/branding/create-id-button";
 
 function SiteHeader() {
   return (
     <header className="site-header">
       <StudioMark />
       <nav className="primary-nav" aria-label="Primary navigation">
-        <a className="hype-link" href="#hype">Check hype</a>
-        <ApplyButton />
+        <CheckHypeModal />
+        <CreateIdButton />
       </nav>
     </header>
   );
@@ -31,7 +20,7 @@ function HeroTitle() {
   return (
     <h1 className="hero-title" aria-label="Hacker House Goa">
       <span className="title-line">Hacker</span>
-      <span className="goa-word" lang="hi" aria-hidden="true">गोवा</span>
+      <img className="goa-wordmark" src="/branding/goa-hindi.svg" alt="" aria-hidden="true" />
       <span className="title-line title-house">House</span>
     </h1>
   );
@@ -59,13 +48,11 @@ export default function Home() {
     <main id="top" className="page-shell">
       <SiteHeader />
       <section className="hero" aria-labelledby="hero-heading">
-        <div className="hero-art" aria-hidden="true" />
+        <GoaEnvironment />
         <div className="hero-content">
           <div id="hero-heading"><HeroTitle /></div>
           <EventDetails />
         </div>
-        <div className="sun-spark spark-one" aria-hidden="true">✦</div>
-        <div className="sun-spark spark-two" aria-hidden="true">✦</div>
       </section>
     </main>
   );

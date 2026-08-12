@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SiteFooter } from "../components/branding/site-footer";
 
 export const metadata: Metadata = {
   title: {
@@ -8,13 +9,16 @@ export const metadata: Metadata = {
   },
   description:
     "A four-day creative technology gathering by 2:47 PM Studio in Goa, India.",
-  icons: { icon: "/favicon.svg" },
 };
+
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
