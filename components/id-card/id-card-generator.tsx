@@ -280,7 +280,7 @@ export function IdCardGenerator() {
 
   const buildShareUrl = () => {
     const caption = [
-      "🌴 Hacker Goa House: ID unlocked.",
+      "🏖️ Hacker Goa House: ID unlocked.",
       "",
       `👤 ${name.trim()}`,
       `🪪 Builder ID: ${builderId}`,
@@ -290,7 +290,8 @@ export function IdCardGenerator() {
       "",
       "Think you can build too? 👀",
       "Create your own Builder Card:",
-      "https://hacker-house-goa-gold.vercel.app/",
+      " https://hacker-house-goa-gold.vercel.app/ ",
+      "",
       "#FrameInGoa #HHGoa2026",
     ].join("\n");
     return `https://x.com/intent/post?${new URLSearchParams({ text: caption }).toString()}`;
