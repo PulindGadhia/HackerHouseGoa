@@ -1,21 +1,53 @@
 /* eslint-disable @next/next/no-img-element -- generated data URLs are rendered directly for download fidelity. */
 "use client";
 
-import { ChangeEvent, PointerEvent, useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import {
+  ChangeEvent,
+  PointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 const CARD_W = 1536;
 const CARD_H = 1024;
+
 // Coordinates are relative to the 768px-wide front card in the supplied template.
 // Inner edge of the existing dashed photo frame; the template border remains visible.
-const PHOTO_FRAME = { x: 80, y: 642, width: 234, height: 279, radius: 18 };
+const PHOTO_FRAME = {
+  x: 80,
+  y: 642,
+  width: 234,
+  height: 279,
+  radius: 18,
+};
+
 const DEBUG_TEMPLATE = false;
+
 const TEXT_FIELDS = {
-  // These are the visual centers of the blank text zones, deliberately above
-  // the template's existing artwork rules at y≈742, 818, and 894.
-  name: { x: 404, centerY: 714, maxWidth: 291, maxFontSize: 40, minFontSize: 18 },
-  role: { x: 404, centerY: 790, maxWidth: 291, maxFontSize: 27, minFontSize: 14 },
-  badgeId: { x: 404, centerY: 866, maxWidth: 291, maxFontSize: 23, minFontSize: 14 },
+  name: {
+    x: 404,
+    centerY: 714,
+    maxWidth: 291,
+    maxFontSize: 40,
+    minFontSize: 18,
+  },
+
+  role: {
+    x: 404,
+    centerY: 790,
+    maxWidth: 291,
+    maxFontSize: 27,
+    minFontSize: 14,
+  },
+
+  badgeId: {
+    x: 404,
+    centerY: 866,
+    maxWidth: 291,
+    maxFontSize: 23,
+    minFontSize: 14,
+  },
 };
 const FONT_NAME = '"Palatino Linotype", "Book Antiqua", Palatino, serif';
 const FONT_ROLE = '"Playfair Display", Georgia, serif';
@@ -258,8 +290,7 @@ export function IdCardGenerator() {
       "",
       "Think you can build too? 👀",
       "Create your own Builder Card:",
-      "",
-      "",
+      "https://hacker-house-goa-gold.vercel.app/",
       "#FrameInGoa #HHGoa2026",
     ].join("\n");
     return `https://x.com/intent/post?${new URLSearchParams({ text: caption }).toString()}`;
@@ -290,7 +321,7 @@ export function IdCardGenerator() {
 
   return (
     <main className="create-page">
-      <header className="create-page-header"><img className="create-studio-logo" src="/branding/247pm-studio.png" alt="2:47 PM Studio" /><Link href="/" className="create-back-button"><span>← Back to Hacker House Goa</span></Link></header>
+      <header className="create-page-header"><img className="create-studio-logo" src="/branding/247pm-studio.png" alt="2:47 PM Studio" /><a href="/" className="create-back-button"><span>← Back to Hacker House Goa</span></a></header>
       <div className="create-title-block"><h1>BUILDER <img className="create-goa-logo" src="/branding/goa-hindi.svg" alt="Goa" /> PASS</h1><p>Create your official Hacker House Goa 2026 Builder Pass.</p></div>
       <div className="generator-grid">
         <section className="generator-panel" aria-labelledby="details-title">
